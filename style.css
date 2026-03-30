@@ -1,0 +1,205 @@
+/* 1. RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho dos elementos */
+}
+
+:root {
+    --azul-principal: royalblue;
+    --azul-escuro: navy;
+    --fundo-bege: antiquewhite;
+    --texto-claro: #fdfdfd;
+    --cinza-topo: #717472;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* 2. CABEÇALHO (HEADER) */
+.topo-conteudo {
+    background-color: var(--cinza-topo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.logo-imo {
+    height: 120px; /* Ajustei para 120px para não ocupar a tela toda, mas mantenha 200px se preferir */
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.topo-conteudo p a {
+    text-decoration: none;
+    color: var(--texto-claro);
+    margin: 0 15px;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 8px 15px;
+}
+
+.topo-conteudo p a:hover {
+    background-color: #333;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* 3. SEÇÕES E IMAGENS GERAIS */
+/* Criei uma classe comum para evitar repetir código de centralização */
+.container-central {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Espaço nas laterais e entre seções */
+}
+
+.casa-sala, .casamar, .corretores {
+    display: block;
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    margin: 20px auto;
+}
+
+/* 4. CONTEÚDO (SOBRE E SERVIÇOS) */
+.imo-sonho, .nossos-servicos, .corretores-2, .contato-0 {
+    background-color: var(--fundo-bege);
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 10px; /* Pequena separação entre blocos */
+}
+
+.subtitulo-0, .corretores-0, .subtitulo-contato {
+    color: var(--azul-principal);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* 5. LISTAS E DESTAQUES */
+.diferencial {
+    text-align: left;
+    display: inline-block; /* Faz a lista centralizar mas o texto alinhar à esquerda */
+    margin-top: 20px;
+}
+
+.diferencial li {
+    margin-bottom: 10px;
+}
+
+.idade, .conteudo-destaque, .texto-destaque2, .servicos-1, .servicos-2, .corretores-1, .equipe {
+    color: var(--azul-principal);
+    font-weight: bold;
+}
+
+/* 6. BOTÃO DE EMAIL E CONTATO */
+.equipe-1 {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--azul-escuro); /* Mudei para marinho para destacar mais */
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.equipe-1:hover {
+    background-color: goldenrod;
+    color: #333 !important;
+}
+
+.contato {
+    color: white;
+    font-weight: bold;
+    background-color: coral;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.contato-2 {
+    text-decoration: none;
+    color: var(--azul-principal);
+    margin: 0 10px;
+    font-weight: bold;
+    padding: 5px;
+    transition: 0.2s;
+}
+
+.contato-2:hover {
+    color: var(--azul-escuro);
+    text-decoration: underline;
+}
+
+/* 7. MAPA E IFRAME */
+.local {
+    width: 100%;       /* Ocupa toda a largura da div pai */
+    height: 600px;     /* Aumente este valor (ex: 600px, 700px) para deixá-lo mais alto */
+    max-width: 1024px; /* Mantém o mapa alinhado com o restante do seu site */
+    display: block;
+    margin: 30px auto; /* Centraliza e dá espaçamento */
+    border-radius: 15px; /* Deixa as bordas arredondadas e modernas */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Adiciona uma sombra suave */
+}
+
+/* 1. ESTILO INICIAL DAS IMAGENS (Invisíveis e deslocadas) */
+.casa-sala, .casamar, .corretores {
+    opacity: 0;                   /* Totalmente invisível */
+    transform: translateY(20px);  /* Empurra 20px para baixo */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Duração e suavidade da animação */
+    will-change: opacity, transform; /* Otimização para o navegador */
+}
+
+/* 2. CLASSE QUE ATIVA A ANIMAÇÃO (Visíveis e na posição original) */
+/* Esta classe será adicionada pelo JavaScript */
+.imagem-visivel {
+    opacity: 1 !important;        /* Totalmente visível */
+    transform: translateY(0) !important; /* Volta para a posição original */
+}
+/* Estilo do Botão Flutuante */
+.whatsapp-float {
+    position: fixed;         /* Fixa o botão na tela */
+    width: 60px;
+    height: 60px;
+    bottom: 40px;           /* Distância do fundo */
+    right: 40px;            /* Distância da direita */
+    background-color: #25d366; /* Verde oficial do WhatsApp */
+    color: #FFF;
+    border-radius: 50px;    /* Deixa redondo */
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2); /* Sombra para dar profundidade */
+    z-index: 1000;          /* Garante que fique acima de tudo (mapas, imagens, etc) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Suaviza o efeito de hover */
+}
+
+/* Tamanho do ícone dentro do botão */
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Efeito ao passar o mouse */
+.whatsapp-float:hover {
+    transform: scale(1.1);   /* Aumenta levemente o botão */
+    background-color: #128c7e; /* Tom de verde mais escuro */
+}
+
+/* Ajuste para telas de celular (opcional) */
+@media screen and (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

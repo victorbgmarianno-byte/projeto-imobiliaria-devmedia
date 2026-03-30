@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Imobiliária Marianno ajuda você a conquistar o sonho da casa nova com 20 anos de experiência.">
+    <link rel="stylesheet" href="style.css">
+    <title>Imobiliária Marianno — 20 Anos de Excelência</title>
+</head>
+
+<body>
+    <header class="topo-conteudo">
+        <img class="logo-imo" src="img/ImoMarianno.png" alt="Logotipo Imobiliária Marianno">
+        <nav>
+            <a href="#sobre">Informações</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#corretores">Corretores</a>
+            <a href="#contato">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="banner-principal">
+            <img class="casa-sala" src="img/casa e sala.png" alt="Vista interna de uma sala de estar decorada">
+        </div>
+
+        <section id="sobre" class="imo-sonho">
+            <h1>Encontre seu Imóvel dos Sonhos</h1>
+            <h2 class="subtitulo-0">A imobiliária que te ajuda no sonho do seu Imóvel</h2>
+            
+            <img class="casamar" src="img/casamar.png" alt="Imagem de uma casa de alto padrão">
+            
+            <p>
+                <span class="idade">Há duas décadas</span>, a Imobiliária Marianno vem escrevendo uma história sólida no mercado imobiliário, marcada pela transparência, dedicação e compromisso com cada cliente. 
+                Nossa trajetória é feita de relações duradouras, <span class="conteudo-destaque">experiências positivas e resultados</span>.
+            </p>
+            <p>
+                Seja para realizar o sonho da casa própria ou investir com inteligência, oferecemos as <span class="texto-destaque2">melhores condições do mercado</span>.
+            </p>
+        </section>
+
+        <section id="servicos" class="nossos-servicos">
+            <h2 class="subtitulo-0">Serviços</h2>
+            <p>
+                <span class="servicos-1">A Imobiliária Marianno</span> se consolidou como <span class="servicos-2">referência em qualidade</span>. Nosso compromisso com a excelência está presente em todas as etapas:
+            </p>
+            
+            <ul class="diferencial">
+                <li>Avaliação precisa e estratégica dos imóveis.</li>
+                <li>Consultoria personalizada e segura.</li>
+                <li>Atendimento ágil e profissional.</li>
+                <li>Equipe altamente capacitada.</li>
+                <li>Serviços modernos e inovadores.</li>
+            </ul>
+        </section>
+
+        <section id="corretores" class="corretores-2">
+            <h2 class="corretores-0">Corretores</h2>
+            <img class="corretores" src="img/corretores.png" alt="Equipe de corretores da Marianno">
+            <p>
+                <span class="corretores-1">A força da Marianno está na sua equipe!</span> 
+                Nossos corretores atuam com <span class="equipe">profissionalismo e foco total</span>. 
+                Para entrar em contato, clique aqui: <a class="equipe-1" href="mailto:victorbgmarianno@gmail.com">Falar com um corretor</a>
+            </p>
+        </section>
+
+        <section id="contato" class="contato-0">
+            <h2 class="subtitulo-contato">Contato</h2>
+            <div class="mapa-container">
+                <iframe class="local" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.0093894546976!2d-40.28839482476201!3d-20.34123078114158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb816411d4b14eb%3A0xc33316dcc4582f09!2sEdif%C3%ADcio%20Unique%20Business%20-%20R.%20Erothildes%20Penna%20Medina%2C%20195%20-%201304%20-%20Praia%20da%20Costa%2C%20Vila%20Velha%20-%20ES%2C%2029101-655!5e0!3m2!1spt-BR!2sbr!4v1773341036773!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <p class="contato">Ficou interessado? Entre em <span class="secao-contato">Contato</span> pelos telefones abaixo:</p>
+            
+            <ul class="lista-unidades">
+                <li><a class="contato-2" href="https://wa.me/5527998516176">Praia da Costa</a></li>
+                <li><a class="contato-2" href="https://wa.me/5527998516176">Mata da Praia</a></li>
+                <li><a class="contato-2" href="https://wa.me/5527998516176">Itaparica</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="rodape-simples">
+        <p>&copy; 2026 Imobiliária Marianno — Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        // 1. Seleciona todas as imagens que queremos animar
+        const imagensParaAnimar = document.querySelectorAll('.casa-sala, .casamar, .corretores');
+
+        // 2. Configurações do Observador
+        const configuracoes = {
+            root: null, // Usa a área visível do navegador como referência
+            threshold: 0.2 // A animação dispara quando 20% da imagem estiver visível
+        };
+
+        // 3. Função que é executada quando o elemento entra na tela
+        const dispararAnimacao = (entradas, observador) => {
+            entradas.forEach(entrada => {
+                // Se o elemento estiver visível na tela
+                if (entrada.isIntersecting) {
+                    // Adiciona a classe CSS que faz a animação
+                    entrada.target.classList.add('imagem-visivel');
+                    // Para de observar este elemento para não repetir a animação
+                    observador.unobserve(entrada.target);
+                }
+            });
+        };
+
+        // 4. Cria o Observador e começa a vigiar as imagens
+        const observador = new IntersectionObserver(dispararAnimacao, configuracoes);
+
+        imagensParaAnimar.forEach(imagem => {
+            observador.observe(imagem);
+        });
+    </script>
+    <a href="https://wa.me/5527998516176?text=Olá! Gostaria de mais informações sobre um imóvel." 
+   class="whatsapp-float" 
+   target="_blank">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+</body>
+</html>
